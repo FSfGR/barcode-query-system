@@ -5,7 +5,7 @@ class Home extends Component {
 
     render(){
         return(
-            <div>This is Home page, where users first see.</div>
+            <div>发家致富第一步，冲鸭！</div>
         )
     }
 }
