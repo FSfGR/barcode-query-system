@@ -3,10 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ericblade/quagga2": "0.0.2",
+    "barcode-js": "^11.0.198",
+    "expo-barcode-scanner": "^6.0.0",
+    "prop-types": "^15.7.2",
+    "quagga": "^0.12.1",
     "react": "^16.9.0",
+    "react-barcode-reader": "0.0.1",
     "react-dom": "^16.9.0",
+    "react-native": "^0.60.5",
+    "react-native-zxing": "^1.0.11",
+    "react-qr-reader": "^2.2.1",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.1.1"
+    "react-scripts": "3.1.1",
+    "react-webcam": "^2.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
