@@ -1,17 +1,13 @@
 import React, { useState, useRef } from 'react';
 import {
   View,
-  Text,
   StyleSheet,
-  TextInput,
   Button,
   TouchableWithoutFeedback,
   Keyboard,
   Alert,
   TouchableOpacity,
-  ScrollView,
-  Dimensions,
-  Image
+  ScrollView
 } from 'react-native';
 
 // Import components
@@ -19,6 +15,7 @@ import BarcodeScanner from '../components/BarcodeScanner.js';
 import Header from '../components/Header.js';
 import Input from '../components/Input.js';
 import ToggleView from '../components/ToggleView.js';
+import BackgroundImage from '../components/BackgroundImage.js';
 
 // Import constants
 import Colors from '../constants/colors.js';
@@ -26,10 +23,6 @@ import Texts from '../constants/texts-en.js';
 
 // Import media file
 import BackgroundImg from '../media/background_grocery.png';
-
-
-let screenWidth = Dimensions.get('window').width;
-let screenHeight = Dimensions.get('window').height;
 
 const ScanScreen = (props) => {
 
@@ -87,9 +80,7 @@ const ScanScreen = (props) => {
       <View style={styles.screen}>
 
         {/* Backgound Image */}
-        <View>
-          <Image style={styles.backgroundImg} source={BackgroundImg} />
-        </View>
+        <BackgroundImage sourceFile={BackgroundImg} />
 
         {/* Scrollale Main Body */}
         <ScrollView contentContainerStyle={styles.body} onScroll={hideKeyboardHandler}>
@@ -160,16 +151,6 @@ const styles = StyleSheet.create({
   body: {
     width: '100%',
     alignItems: 'center'
-  },
-  backgroundImg: {
-    height: screenHeight,
-    width: '100%',
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    resizeMode: 'cover'
   },
   barCodeScannerContainer: {
     width: 300,

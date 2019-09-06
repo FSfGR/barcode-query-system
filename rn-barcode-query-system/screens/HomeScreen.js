@@ -1,15 +1,12 @@
 import React, { useState, useRef } from 'react';
 import {
   View,
-  Text,
   StyleSheet,
-  TextInput,
   Button,
   TouchableWithoutFeedback,
   Keyboard,
   Alert,
   TouchableOpacity,
-  ScrollView,
   Dimensions,
   Image
 } from 'react-native';
@@ -18,6 +15,8 @@ import {
 import Header from '../components/Header.js';
 import Input from '../components/Input.js';
 import ToggleView from '../components/ToggleView.js';
+import BackgroundImage from '../components/BackgroundImage.js';
+import Icon from '../components/Icon.js';
 
 // Import constants
 import Colors from '../constants/colors.js';
@@ -77,9 +76,7 @@ const HomeScreen = (props) => {
       <View style={styles.screen}>
 
         {/* Backgound Image */}
-        <View>
-            <Image style={styles.backgroundImg} source={BackgroundImg} />
-        </View>
+        <BackgroundImage sourceFile={BackgroundImg} />
 
         {/* Main Body */}
         <View style={styles.body}>
@@ -90,10 +87,12 @@ const HomeScreen = (props) => {
             {/* Editable  */}
             <View style={styles.searchBarContainer}>
 
-              {/* Scan barcode icon  */}
-              <TouchableOpacity onPress={clickScanButtonHandler}>
-                <Image style={styles.scanIcon} source={ScanImg} />
-              </TouchableOpacity>
+              {/* Scan barcode icon */}
+              <Icon
+                onPress={clickScanButtonHandler}
+                withImg={true}
+                imageSource={ScanImg}
+              />
 
 
               {/* Editable search bar */}
@@ -154,16 +153,6 @@ const styles = StyleSheet.create({
     marginTop: screenHeight/4,
     alignItems: 'center'
   },
-  backgroundImg: {
-    height: screenHeight,
-    width: screenWidth,
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    resizeMode: 'cover'
-  },
   searchSectionContainer: {
     flexDirection: 'column',
     width: 350,
@@ -173,10 +162,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center'
-  },
-  scanIcon: {
-    width: 35,
-    height: 35
   },
   input: {
     width: 300,

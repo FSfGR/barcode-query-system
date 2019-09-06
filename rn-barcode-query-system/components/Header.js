@@ -6,6 +6,9 @@ import { View,
   TouchableOpacity
 } from 'react-native';
 
+// Import components
+import Icon from './Icon.js';
+
 // Import constants
 import Colors from '../constants/colors';
 import Texts from '../constants/texts-en.js';
@@ -27,9 +30,11 @@ const Header = (props) => {
       <View style={styles.navBarContainer}>
 
         {/* Home on navigation bar */}
-        <TouchableOpacity onPress={clickHomeHandler}>
-          <Text style={styles.navBarItem}>{Texts.navBarItemHome}</Text>
-        </TouchableOpacity>
+        <Icon
+          onPress={clickHomeHandler}
+          withImg={false}
+          text={Texts.navBarItemHome}
+        />
 
       </View>
 
@@ -38,11 +43,18 @@ const Header = (props) => {
 
       {/* Login section on header */}
       <View style={styles.loginSectionContainer}>
-        <Image
+        <Icon
           style={styles.acctIcon}
-          source={AcctNotLoginImg}
+          onPress={() => {}}
+          withImg={true}
+          imageSource={AcctNotLoginImg}
         />
-        <Text style={styles.acctText}>{Texts.login}</Text>
+        <Icon
+          style={styles.acctText}
+          onPress={() => {}}
+          withImg={false}
+          text={Texts.login}
+        />
       </View>
     </View>
   );
@@ -68,9 +80,6 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     flex: 5,
     marginHorizontal: 10
-  },
-  navBarItem: {
-    fontSize: 18
   },
   loginSectionContainer: {
     flexDirection: 'row',
