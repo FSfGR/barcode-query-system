@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -17,6 +17,7 @@ import {
 
 // Import components
 import BackgroundImage from '../components/BackgroundImage.js';
+import ToggleView from '../components/ToggleView.js';
 import ProductDetailItem from '../components/ProductDetailItem.js';
 
 // Import constants
@@ -35,6 +36,9 @@ let testValue = "Pei pa koa is made up of a blend of herbal ingredients[8] inclu
 
 const ProductDetailScreen = (props) => {
 
+  // Hooks
+  const [loggedin, setLoggedin] = useState(true); // TODO: needs to be changed back to false after testing
+
   // Handler for clicking New Search Button for a new search
   const clickNewSearchButtonHandler = () => {
     props.onBackButtonClicked();
@@ -47,6 +51,29 @@ const ProductDetailScreen = (props) => {
       <View>
         <Image style={styles.backgroundImg} source={BackgroundImg} />
       </View>
+
+      {/* Togglable extra buttons for logged in situation */}
+      <ToggleView
+        hide={!loggedin}
+        style={styles.extraButtonsContainer}
+      >
+        {/* History Button */}
+        <TouchableOpacity style={styles.extraButton}>
+          <Button
+            title={Texts.historyButtonText}
+            color='white'
+            onPress={() => {}}
+          />
+        </TouchableOpacity>
+        {/* Edit Button */}
+        <TouchableOpacity style={styles.extraButton}>
+          <Button
+            title={Texts.editButtonText}
+            color='white'
+            onPress={() => {}}
+          />
+        </TouchableOpacity>
+      </ToggleView>
 
       {/* Scrollale Main Body */}
       <ScrollView contentContainerStyle={styles.body}>
@@ -109,6 +136,25 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     resizeMode: 'cover'
+  },
+  extraButtonsContainer: {
+    width: screenWidth,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    paddingTop: 20,
+    backgroundColor: 'green'
+  },
+  extraButton: {
+    width: 150,
+    maxWidth: '50%',
+    height: 50,
+    maxHeight: '90%',
+    borderRadius: 10,
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    justifyContent: 'center',
+    marginBottom: 20
   },
   productDetailsContainer: {
     alignItems: 'flex-start',

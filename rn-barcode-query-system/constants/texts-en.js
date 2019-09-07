@@ -7,5 +7,7 @@ export default {
   confirmButtonText: 'CONFIRM',
   clearButtonText: 'CLEAR',
   searchButtonText: 'SEARCH',
-  newSearchButtonText: 'NEW SEARCH'
+  newSearchButtonText: 'NEW SEARCH',
+  historyButtonText: 'HISTORY',
+  editButtonText: 'EDIT'
 };
