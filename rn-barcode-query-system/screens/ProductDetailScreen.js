@@ -25,6 +25,7 @@ import Texts from '../constants/texts-en.js';
 
 // Import media file
 import BackgroundImg from '../media/background_grocery.png';
+import SampleProductImg from '../media/sample_product.png';
 
 
 let screenWidth = Dimensions.get('window').width;
@@ -48,13 +49,19 @@ const ProductDetailScreen = (props) => {
       </View>
 
       {/* Scrollale Main Body */}
-      <ScrollView contentContainerStyle={styles.productDetailsContainer}>
+      <ScrollView contentContainerStyle={styles.body}>
 
         {/* Container for Product Details */}
         <View style={styles.productDetailsContainer}>
-          <ProductDetailItem title="Name:" value="NIN JIOM PEI PA KOA"/>
-          <ProductDetailItem title="Retail Price:" value="$9.99 / Box"/>
-          <ProductDetailItem title="Wholesale Price:" value="$6.59 / Box"/>
+          <View style={styles.topPart}>
+            <View>
+              <ProductDetailItem title="Name:" value="NIN JIOM PEI PA KOA"/>
+              <ProductDetailItem title="Retail Price:" value="$9.99 / Box"/>
+              <ProductDetailItem title="Wholesale Price:" value="$6.59 / Box"/>
+            </View>
+            <Image style={styles.previewImg} source={SampleProductImg}/>
+          </View>
+
           <ProductDetailItem title="Amount:" value="12 Box(es)"/>
           <ProductDetailItem title="Status:" value="Enough"/>
           <ProductDetailItem title="Date Last Updated:" value="11:36PM - Aug 17, 2019"/>
@@ -107,6 +114,21 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     flexDirection: 'column',
     backgroundColor: Colors.accent
+  },
+  topPart: {
+    width: 500,
+    maxWidth: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: 'yellow'
+  },
+  previewImg: {
+    width: 150,
+    maxWidth: '50%',
+    height: 200,
+    maxHeight: '100%',
+    resizeMode: 'contain',
+    backgroundColor: 'black'
   },
   textfulBlock: {
     fontSize: 15
