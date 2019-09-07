@@ -12,7 +12,6 @@ import {
 
 // Import components
 import BarcodeScanner from '../components/BarcodeScanner.js';
-import Header from '../components/Header.js';
 import Input from '../components/Input.js';
 import ToggleView from '../components/ToggleView.js';
 import BackgroundImage from '../components/BackgroundImage.js';

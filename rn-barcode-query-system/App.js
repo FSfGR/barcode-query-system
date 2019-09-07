@@ -3,7 +3,8 @@ import { StyleSheet, View, Alert } from 'react-native';
 
 // Import screens
 import ScanScreen from './screens/ScanScreen.js';
-import HomeScreen from './screens/HomeScreen.js';
+import HomeScreen from './screens/ProductDetailScreen.js'; // TODO: need to be changed back to Home after testing
+import ProductDetailScreen from './screens/ProductDetailScreen.js';
 
 // Import components
 import Header from './components/Header.js';
