@@ -41,8 +41,23 @@ const ProductDetailScreen = (props) => {
 
   // Handler for clicking New Search Button for a new search
   const clickNewSearchButtonHandler = () => {
-    props.onBackButtonClicked();
+    props.onNewSearchButtonClicked();
   };
+
+  // Handler for clicking History Button to check the updating history of this product
+  const clickHistoryButtonHandler = () => {
+    console.log("History Button is clicked!");
+  };
+
+  // Handler for clicking Edit Button to edit the product's details
+  const clickEditButtonHandler = () => {
+    console.log("Edit Button is clicked!");
+  };
+
+  console.log("=============================================================================");
+  console.log("Before rendering, test if the product details passed from App.js is correct:");
+  console.log(props.details);
+  console.log("=============================================================================");
 
   return (
     <View style={styles.screen}>
@@ -62,7 +77,7 @@ const ProductDetailScreen = (props) => {
           <Button
             title={Texts.historyButtonText}
             color='white'
-            onPress={() => {}}
+            onPress={clickHistoryButtonHandler}
           />
         </TouchableOpacity>
         {/* Edit Button */}
@@ -70,7 +85,7 @@ const ProductDetailScreen = (props) => {
           <Button
             title={Texts.editButtonText}
             color='white'
-            onPress={() => {}}
+            onPress={clickEditButtonHandler}
           />
         </TouchableOpacity>
       </ToggleView>
@@ -106,7 +121,7 @@ const ProductDetailScreen = (props) => {
           <Button
             title={Texts.newSearchButtonText}
             color='white'
-            onPress={() => {}}
+            onPress={clickNewSearchButtonHandler}
           />
         </TouchableOpacity>
 
