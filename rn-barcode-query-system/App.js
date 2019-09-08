@@ -21,6 +21,7 @@ export default function App() {
   // Handler for Home button redirection on Header
   const redirectToHome = () => {
     // setHomeScreenOn(true);
+    setBarcode('');
     setDisplayScreen('HomeScreen');
   };
 
