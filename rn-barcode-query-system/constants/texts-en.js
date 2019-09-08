@@ -9,5 +9,13 @@ export default {
   searchButtonText: 'SEARCH',
   newSearchButtonText: 'NEW SEARCH',
   historyButtonText: 'HISTORY',
-  editButtonText: 'EDIT'
+  editButtonText: 'EDIT',
+  productDetailsNameText: 'Name:',
+  productDetailsAmountText: 'Amount:',
+  productDetailsDescriptionText: 'Description:',
+  productDetailsRemarksText: 'Remarks:',
+  productDetailsRetailPriceText: 'Retail Price:',
+  productDetailsWholesalePriceText: 'Wholesale Price:',
+  productDetailsStatusText: 'Status:',
+  productDetailsDateLastUpdatedText: 'Date Last Updated:',
 };

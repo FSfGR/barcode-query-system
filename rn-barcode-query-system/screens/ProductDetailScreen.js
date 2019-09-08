@@ -95,18 +95,18 @@ const ProductDetailScreen = (props) => {
         <View style={styles.productDetailsContainer}>
           <View style={styles.topPart}>
             <View>
-              <ProductDetailItem title={"Name:"} value={props.details.Name}/>
-              <ProductDetailItem title="Retail Price:" value={props.details.RetailPrice + " / Box"}/>
-              <ProductDetailItem title="Wholesale Price:" value={props.details.WholesalePrice + " / Box"}/>
+              <ProductDetailItem title={Texts.productDetailsNameText} value={props.details.Name}/>
+              <ProductDetailItem title={Texts.productDetailsRetailPriceText} value={props.details.RetailPrice + " / Box"}/>
+              <ProductDetailItem title={Texts.productDetailsWholesalePriceText} value={props.details.WholesalePrice + " / Box"}/>
             </View>
             <Image style={styles.previewImg} source={SampleProductImg}/>
           </View>
 
-          <ProductDetailItem title="Amount:" value={props.details.Amount + " Box(es)"}/>
-          <ProductDetailItem title="Status:" value={props.details.Status}/>
-          <ProductDetailItem title="Date Last Updated:" value="11:36PM - Aug 17, 2019"/>
-          <ProductDetailItem title="Description:" valueStyle={styles.textfulBlock} value={props.details.Description}/>
-          <ProductDetailItem title="Remarks:" valueStyle={styles.textfulBlock} value={props.details.Remarks}/>
+          <ProductDetailItem title={Texts.productDetailsAmountText} value={props.details.Amount + " Box(es)"}/>
+          <ProductDetailItem title={Texts.productDetailsStatusText} value={props.details.Status}/>
+          <ProductDetailItem title={Texts.productDetailsDateLastUpdatedText} value="11:36PM - Aug 17, 2019"/>
+          <ProductDetailItem title={Texts.productDetailsDescriptionText} valueStyle={styles.textfulBlock} value={props.details.Description}/>
+          <ProductDetailItem title={Texts.productDetailsRemarksText} valueStyle={styles.textfulBlock} value={props.details.Remarks}/>
         </View>
 
       </ScrollView>
