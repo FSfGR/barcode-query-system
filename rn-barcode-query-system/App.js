@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Alert } from 'react-native';
+import axios from 'axios';
 
 // Import screens
 import ScanScreen from './screens/ScanScreen.js';
@@ -15,6 +16,7 @@ export default function App() {
   // const [homeScreenOn, setHomeScreenOn] = useState(true);
   const [barcode, setBarcode] = useState('');
   const [displayScreen, setDisplayScreen] = useState('HomeScreen');
+  const [productDetails, setProductDetails] = useState({});
 
   // Handler for Home button redirection on Header
   const redirectToHome = () => {
@@ -42,19 +44,31 @@ export default function App() {
   };
 
   // Handler for search a product with given barcode sent from ScanScreen
-  const clickSearchButtonHandler = (barcode) => {
+  const clickSearchButtonHandler = async (barcode) => {
     // TODO: fake backend for now.... need to be updated after BE is established
     // Barcode validation
     if (barcode !== '') {
       console.log("Waiting for BE responds for search product with barcode: " + barcode);
-      Alert.alert(
-        'Fake Backend',
-        "Waiting for BE responds for search product with barcode: " + barcode,
-        [{text: 'Okay', style: 'destructive', onPress: () => {}}]
-      );
-      // TODO: This part needs to be moved into if (barcode !== '') above as the asyncronous function's callback
-      // redirect to ProductDetailScreen
-      setDisplayScreen('ProductDetailScreen');
+      // Alert.alert(
+      //   'Fake Backend',
+      //   "Waiting for BE responds for search product with barcode: " + barcode,
+      //   [{text: 'Okay', style: 'destructive', onPress: () => {}}]
+      // );
+      // axios.defaults.withCredentials=true;
+      // Try to get product details
+      try {
+        // TODO: NOTICE!!! for testing purpose, the IP address should be the one used for your computer (port is the same tho)
+        await axios.get('http://192.168.0.11:3306/details/' + barcode + '/')
+          .then(res => {
+            console.log("Result from BE, res.data[0]: " + res.data[0]);
+            setProductDetails(res.data[0]);
+            // TODO: This part needs to be moved into if (barcode !== '') above as the asyncronous function's callback
+            // redirect to ProductDetailScreen
+            setDisplayScreen('ProductDetailScreen');
+          });
+      } catch (err) {
+        console.log(err);
+      }
     } else {
       Alert.alert(
         'Barcode cannot be empty!',
@@ -86,7 +100,7 @@ export default function App() {
     case 'ProductDetailScreen':
       content = (
         <ProductDetailScreen
-          details={{'fake title': 'fake value'}}
+          details={productDetails}
           onNewSearchButtonClicked={redirectToHome}
         />
       );
