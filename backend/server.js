@@ -17,11 +17,11 @@ const db = mysql.createConnection({
 db.connect();
 
 // GET request for querying DB by barcode
-app.get('/details', function(req,res){
+app.get('/details/:barcode/', function(req,res){
   // Form SQL query and execute it
   let sql = "SELECT * FROM ProductDetails WHERE Barcode = ?";
-  let data = req.body.barcode;
-  db.query(sql, data, (err, result)=>{
+  let barcode = req.params.barcode;
+  db.query(sql, barcode, (err, result)=>{
     if(err) throw err;
     console.log("Results fetched from ProductDetails:");
     console.log(result);
@@ -30,7 +30,7 @@ app.get('/details', function(req,res){
 });
 
 // POST request for inserting new product detail with passed in data in req body
-app.post('/details', function(req, res){
+app.post('/details/', function(req, res){
 	console.log(req.body);
   // Format data from request body
   let data = {
