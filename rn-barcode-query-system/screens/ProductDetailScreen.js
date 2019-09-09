@@ -32,8 +32,6 @@ import SampleProductImg from '../media/sample_product.png';
 let screenWidth = Dimensions.get('window').width;
 let screenHeight = Dimensions.get('window').height;
 
-let testValue = "Pei pa koa is made up of a blend of herbal ingredients[8] including the fritillary bulb (Bulbus fritillariae cirrhosae, 川貝母), loquat leaf (Eriobotrya japonica, 枇鈀葉), ladybell root (Adenophora stricta, 南沙參), Indian bread (Wolfiporia extensa), 茯苓), pomelo peel (Citrus maxima, 化橘紅), chinese bellflower root (Platycodon grandiflorum, 桔梗), pinellia rhizome (Pinellia ternata, 半夏), Schisandra seed (Schisandra chinensis, 五味子), Trichosanthes seed (Trichosanthes cucumerina, 瓜蔞子), coltsfoot flower (Tussilago farfara, 款冬花), thinleaf milkwort root (Polygala tenuifolia, 遠志), bitter apricot kernel (Prunus armeniaca, 苦杏仁), fresh ginger (Zingiber officinale, 生薑), licorice root (Glycyrrhiza uralensis, 甘草),[9] and menthol in a syrup and honey base.";
-
 const ProductDetailScreen = (props) => {
 
   // Hooks
@@ -97,18 +95,18 @@ const ProductDetailScreen = (props) => {
         <View style={styles.productDetailsContainer}>
           <View style={styles.topPart}>
             <View>
-              <ProductDetailItem title="Name:" value="NIN JIOM PEI PA KOA"/>
-              <ProductDetailItem title="Retail Price:" value="$9.99 / Box"/>
-              <ProductDetailItem title="Wholesale Price:" value="$6.59 / Box"/>
+              <ProductDetailItem title={Texts.productDetailsNameText} value={props.details.Name}/>
+              <ProductDetailItem title={Texts.productDetailsRetailPriceText} value={props.details.RetailPrice + " / Box"}/>
+              <ProductDetailItem title={Texts.productDetailsWholesalePriceText} value={props.details.WholesalePrice + " / Box"}/>
             </View>
             <Image style={styles.previewImg} source={SampleProductImg}/>
           </View>
 
-          <ProductDetailItem title="Amount:" value="12 Box(es)"/>
-          <ProductDetailItem title="Status:" value="Enough"/>
-          <ProductDetailItem title="Date Last Updated:" value="11:36PM - Aug 17, 2019"/>
-          <ProductDetailItem title="Description:" valueStyle={styles.textfulBlock} value={testValue}/>
-          <ProductDetailItem title="Remarks:" valueStyle={styles.textfulBlock} value="None"/>
+          <ProductDetailItem title={Texts.productDetailsAmountText} value={props.details.Amount + " Box(es)"}/>
+          <ProductDetailItem title={Texts.productDetailsStatusText} value={props.details.Status}/>
+          <ProductDetailItem title={Texts.productDetailsDateLastUpdatedText} value="11:36PM - Aug 17, 2019"/>
+          <ProductDetailItem title={Texts.productDetailsDescriptionText} valueStyle={styles.textfulBlock} value={props.details.Description}/>
+          <ProductDetailItem title={Texts.productDetailsRemarksText} valueStyle={styles.textfulBlock} value={props.details.Remarks}/>
         </View>
 
       </ScrollView>
