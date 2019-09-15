@@ -18,4 +18,7 @@ export default {
   productDetailsWholesalePriceText: 'Wholesale Price:',
   productDetailsStatusText: 'Status:',
   productDetailsDateLastUpdatedText: 'Date Last Updated:',
+  itemNotExistTitleText: 'Item Not Exists',
+  itemNotExistContentText: 'Please try some other barcode or contact admin...',
+  alertOkayButtonText: 'Okay'
 };

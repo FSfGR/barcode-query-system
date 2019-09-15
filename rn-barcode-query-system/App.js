@@ -4,43 +4,36 @@ import axios from 'axios';
 
 // Import screens
 import ScanScreen from './screens/ScanScreen.js';
-import HomeScreen from './screens/HomeScreen.js'; // TODO: need to be changed back to Home after testing
+import HomeScreen from './screens/HomeScreen.js';
 import ProductDetailScreen from './screens/ProductDetailScreen.js';
 
 // Import components
 import Header from './components/Header.js';
 
+// Import constants
+import Texts from './constants/texts-en.js';
+
 export default function App() {
 
   // Hooks
-  // const [homeScreenOn, setHomeScreenOn] = useState(true);
   const [barcode, setBarcode] = useState('');
   const [displayScreen, setDisplayScreen] = useState('HomeScreen');
   const [productDetails, setProductDetails] = useState({});
 
   // Handler for Home button redirection on Header
   const redirectToHome = () => {
-    // setHomeScreenOn(true);
     setBarcode('');
     setDisplayScreen('HomeScreen');
   };
 
   // Handler for redirecting from HomeScreen to ScanScreen
   const homeScreentoScanScreenHandler = () => {
-    // setHomeScreenOn(false);
     setDisplayScreen('ScanScreen');
   };
-
-  // // Handler for redirecting from ScanScreen to HomeScreen
-  // const scanScreenToHomeScreenHandler = () => {
-  //   // setHomeScreenOn(true);
-  //   setDisplayScreen('HomeScreen');
-  // };
 
   // Handler for redirecting from ScanScreen to HomeScreen with barcode transfering
   const scanScreenToHomeScreenWithBarcodeHandler = (barcode) => {
     setBarcode(barcode);
-    // setHomeScreenOn(true);
     setDisplayScreen('HomeScreen');
   };
 
@@ -50,22 +43,25 @@ export default function App() {
     // Barcode validation
     if (barcode !== '') {
       console.log("Waiting for BE responds for search product with barcode: " + barcode);
-      // Alert.alert(
-      //   'Fake Backend',
-      //   "Waiting for BE responds for search product with barcode: " + barcode,
-      //   [{text: 'Okay', style: 'destructive', onPress: () => {}}]
-      // );
-      // axios.defaults.withCredentials=true;
       // Try to get product details
       try {
         // TODO: NOTICE!!! for testing purpose, the IP address should be the one used for your computer (port is the same tho)
-        await axios.get('http://192.168.0.11:3306/details/' + barcode + '/')
+        await axios.get('http://192.168.0.14:3306/details/' + barcode + '/')
           .then(res => {
-            console.log("Result from BE, res.data[0]: " + res.data[0]);
-            setProductDetails(res.data[0]);
-            // TODO: This part needs to be moved into if (barcode !== '') above as the asyncronous function's callback
-            // redirect to ProductDetailScreen
-            setDisplayScreen('ProductDetailScreen');
+            // Check if the result is empty
+            if (res.data.length !== 0) {
+              setProductDetails(res.data[0]);
+              // redirect to ProductDetailScreen
+              setDisplayScreen('ProductDetailScreen');
+            } else {
+              Alert.alert(
+                Texts.itemNotExistTitleText,
+                Texts.itemNotExistContentText,
+                [{text: Texts.alertOkayButtonText, style: 'destructive', onPress: redirectToHome}]
+              );
+              setBarcode('');
+              setDisplayScreen('HomeScreen');
+            }
           });
       } catch (err) {
         console.log(err);
@@ -107,23 +103,6 @@ export default function App() {
       );
 
   }
-
-  // if (homeScreenOn) {
-  //   content = (
-  //     <HomeScreen
-  //       onScanButtonClicked={homeScreentoScanScreenHandler}
-  //       onProductSearch={clickSearchButtonHandler}
-  //       barcode={barcode}
-  //     />
-  //   );
-  // } else {
-  //   content = (
-  //     <ScanScreen
-  //       onBackButtonClicked={scanScreenToHomeScreenHandler}
-  //       onConfirmButtonClicked={scanScreenToHomeScreenWithBarcodeHandler}
-  //     />
-  //   );
-  // }
 
   return (
     <View style={styles.screen}>
