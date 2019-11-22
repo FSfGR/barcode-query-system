@@ -13,7 +13,6 @@
   + ### __Tessting Status__
 
   At this stage, this application may be tested using [expo](https://expo.io).
-
     + __ios__ _(12.x and above)_:
 
       + iPhone X (Max) and later: __checked__
