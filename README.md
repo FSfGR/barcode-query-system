@@ -17,9 +17,7 @@
     + __ios__ _(12.x and above)_:
       + iPhone X (Max) and later: __checked__
       + iPhone 6(s), 7(s), 8 (Plus): __checked__
-
     + __Android__ _(4.x)_:
       + Samsung Galaxy Note 3: __checked__
-
     + __Web__:
       + _Not implemented yet_
