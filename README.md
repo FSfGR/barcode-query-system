@@ -1,4 +1,4 @@
-# __barcode-query-system__
+# __Barcode Query System__
 
   ### 1. __Web Prototype__
 
@@ -7,7 +7,7 @@
 
   ### 2. __Description__
 
-  This is a __cross-platform__ _(ios, Web & web)_ inventory information query & management system. The user could use this application to record product's __barcode__, __amount__, __price__, __preview image__ and many __other basic information__. All recorded information is __queriable__ and __modifiable__ by properly providing the unique barcode of each product. Inputing manner of product's barcode supports both __automatic scanning__ _(camera access required)_ and __manual typing__.
+  This is a __cross-platform__ _(ios, Web & web)_ inventory information query & management system powered by _React Native_ and _MySQL_. The user could use this application to record product's __barcode__, __amount__, __price__, __preview image__ and many __other basic information__. All recorded information is __queriable__ and __modifiable__ by properly providing the unique barcode of each product. Inputing manner of product's barcode supports both __automatic scanning__ _(camera access required)_ and __manual typing__.
 
 
   ### 3. __Testing Status__
