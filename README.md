@@ -21,3 +21,5 @@
     + Samsung Galaxy Note 3: __checked__
   + __Web__:
     + _Not implemented yet_
+
+TestTEXT
